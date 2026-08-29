@@ -27,18 +27,18 @@ external forcing combines a constant component with a component that depends on
 the instantaneous collective coherence. In the frame co-rotating with the drive,
 the simulated dynamics are
 
-$$
+```math
 \frac{d\phi_i}{dt}
 = (\omega_i-\Omega)
 + K R\sin(\Psi-\phi_i)
 - L A_0\left[(1-\rho)+\rho R^\gamma\right]\sin\phi_i,
-$$
+```
 
 where
 
-$$
+```math
 R e^{i\Psi}=\frac{1}{N}\sum_{j=1}^{N}e^{i\phi_j}.
-$$
+```
 
 The hybrid ratio $\rho\in[0,1]$ interpolates between constant forcing
 ($\rho=0$) and fully collectivity-dependent forcing ($\rho=1$). Increasing
