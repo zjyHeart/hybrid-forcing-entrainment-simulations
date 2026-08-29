@@ -1,0 +1,15 @@
+outputs/
+*.mat
+*.fig
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.eps
+*.csv
+*.tsv
+*.asv
+*.autosave
+*.log
+*.tmp
