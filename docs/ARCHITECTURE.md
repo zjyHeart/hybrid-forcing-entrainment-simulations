@@ -17,8 +17,9 @@ presets.*        hybrid.* numerical modules
 
 ## Reuse boundaries
 
-- `hybrid.rhs`, `hybrid.rk4_step`, and `hybrid.integrate_batch` implement the
-  dynamics and time integration once.
+- `hybrid.integrate_batch` keeps the rotating-frame equation, RK4 stages, and
+  tail observables in one complete solver file. Its equation and RK4 functions
+  are local because no workflow uses them independently.
 - `hybrid.prepare_simulation` and `hybrid.prepare_parameters` centralize CPU
   arrays, deterministic sampling, initial phases, precision, and case expansion.
 - `hybrid.simulate_hysteresis_scan` handles forward/backward continuation for any
@@ -28,6 +29,10 @@ presets.*        hybrid.* numerical modules
   into independent cases without study-specific grid boilerplate.
 - `hybrid.base_config`, `hybrid.compose_config`, and `hybrid.merge_structs` remove
   repeated defaults and quick/full conditionals from parameter presets.
+
+This boundary avoids fragmenting one differential-equation implementation while
+still separating the solver from parameter sweeps, study definitions, and file
+output.
 
 ## Extension points
 

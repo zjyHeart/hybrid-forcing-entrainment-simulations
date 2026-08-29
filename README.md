@@ -126,13 +126,15 @@ number:
 
 | Path | Purpose |
 |---|---|
-| `matlab/+hybrid/` | Oscillator dynamics, RK4 integration, continuation, parameter grids, and MAT output |
+| `matlab/+hybrid/` | Complete oscillator solver, continuation, parameter grids, and MAT output |
 | `matlab/+presets/` | Full parameter configurations for each physical study |
 | `matlab/+studies/` | Study workflows and the descriptive study registry |
 | `matlab/run_study.m` | Configure, execute, and save one registered simulation |
 | `matlab/run_all_studies.m` | Execute all registered simulations |
 
-Shared numerical routines are reused by all studies, while presets contain only
+The differential equation, its RK4 stages, and tail observables are kept together
+in `hybrid.integrate_batch` so the numerical model can be read as one complete
+unit. Higher-level scan workflows reuse that solver, while presets contain only
 the parameters that distinguish one physical calculation from another. Further
 details are given in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
