@@ -18,10 +18,11 @@ right-hand-side, Runge-Kutta, continuation, frequency-generation, batching,
 configuration, parameter-grid, runtime setup, and tail-averaging logic is
 centralized under `matlab/+hybrid/`. Scientific presets live under
 `matlab/+presets/`, while reusable workflows live under `matlab/+studies/`.
-Every RK4 stage
-recomputes `R`, `Psi`, and the state-dependent forcing amplitude. This follows the
-strict implementation retained in `weiguan.m`, `average_omega.m`, and the
-non-Lorentzian simulations.
+The right-hand side, all RK4 stages, and tail averaging are colocated in
+`hybrid.integrate_batch` so the complete numerical model remains readable. Every
+RK4 stage recomputes `R`, `Psi`, and the state-dependent forcing amplitude. This
+follows the strict implementation retained in `weiguan.m`, `average_omega.m`, and
+the non-Lorentzian simulations.
 
 The public implementation is CPU-only. Archived filenames containing `GPU` are
 listed solely for exact provenance and are not included as executable code.
